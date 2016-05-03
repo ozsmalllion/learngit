@@ -1,0 +1,38 @@
+package chapter6;
+import java.util.Scanner;
+/**
+ * 
+ * @author ozsmalllion
+ *
+ */
+public class PerfectNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);		
+		int number1st = in.nextInt();
+		int number2 = in.nextInt();
+		int[] bag= new int[1000];
+		int k = 0;
+		for(int i = number1st;i <= number2;i++){
+			if(getPerfectNumber(i)){
+				bag[k++] = i;
+			}
+		}
+		
+		in.close();
+	}
+	public static boolean getPerfectNumber(int number){
+		boolean isPerfectNumber = false;
+		int sum = 0;
+		for(int j = 1; j < number;j++){
+			if(number % j == 0){
+				sum += j;
+			}
+		}
+		if(sum == number){
+			isPerfectNumber = true;
+		}
+		return isPerfectNumber;
+	}
+}
